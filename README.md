@@ -39,6 +39,15 @@ in my own tools where nothing suitable existed.
 | **[homebrew-tap](https://github.com/NormB/homebrew-tap)** | `brew install NormB/tap/sipnab` | |
 | **[mod_mosquitto](https://github.com/freeswitch/mod_mosquitto)** | FreeSWITCH event handler bridging FreeSWITCH events to an MQTT broker. Written from scratch; maintained upstream under the FreeSWITCH org. | [![stars](https://img.shields.io/github/stars/freeswitch/mod_mosquitto?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/freeswitch/mod_mosquitto) |
 
+**Not yet upstream.** Two substantial branches live in my
+[OpenSIPS fork](https://github.com/NormB/opensips) while they mature:
+
+| Branch | What it adds |
+|---|---|
+| [`feature/nats`](https://github.com/NormB/opensips/tree/feature/nats) | NATS support for OpenSIPS — `event_nats`, `cachedb_nats`, `cachedb_nats_fts` and `nats_consumer`, over a shared `lib/nats`, with fault-model and TLS-backend docs. 618 commits. |
+| [`feature/rust`](https://github.com/NormB/opensips/tree/feature/rust) | A Rust module SDK for OpenSIPS 4.0 (`rust`) plus six modules written against it — ACL, concurrent-call limits, credit check, HTTP webhooks, REFER handling and session timers. 106 commits. |
+
+
 ### Upstream
 
 Two decades of features and fixes that landed in other people's projects, oldest first.
