@@ -50,7 +50,10 @@ Merged pull requests. Every count links to the search that produces it.
 | [signalwire/SignaLWire-ML-examples](https://github.com/signalwire/SignaLWire-ML-examples/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **2** |
 | [OpenSIPS/sipssert-opensips-tests](https://github.com/OpenSIPS/sipssert-opensips-tests/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **1** |
 
-Counts hide the interesting part. A sample of what those changes actually were:
+Counts hide the interesting part. The OpenSIPS work alone spans at least a dozen
+modules — `cachedb_redis`, `dialog`, `tm`, `janus`, `rtpengine`, `b2b_entities`,
+`pua_dialoginfo`, `stir_shaken`, `sockets_mgm`, `dispatcher`, `event_rabbitmq`,
+`cfgutils` — and is mostly memory-safety and concurrency work. A sample:
 
 - **Redis Cluster support for OpenSIPS** — hash-tag support ([#3815](https://github.com/OpenSIPS/opensips/pull/3815)), safer redirect
   parsing ([#3854](https://github.com/OpenSIPS/opensips/pull/3854)), dynamic topology management ([#3855](https://github.com/OpenSIPS/opensips/pull/3855)) and Unix-socket
@@ -65,12 +68,17 @@ Counts hide the interesting part. A sample of what those changes actually were:
   [switch_core parameter docs](https://github.com/signalwire/freeswitch/pull/795)
 - **[Password handling in valkey-admin](https://github.com/valkey-io/valkey-admin/pull/242)** —
   decrypt passthrough and double-encryption fixes
+- **[SIP→WebRTC transcoding regression tests](https://github.com/OpenSIPS/sipssert-opensips-tests/pull/33)** —
+  four sipssert scenarios pinning down `rtp_relay` issue
+  [#3902](https://github.com/OpenSIPS/opensips/issues/3902), contributed to the project's own test suite
 
 ### Currently
 
 - **sipnab** — deepening protocol coverage (SIP, SDP, RTP/RTCP, STUN/TURN, TLS/DTLS) and the MCP server that exposes it to agents
 - **opensips-lsp / kamailio-lsp** — bringing real editor tooling to SIP routing scripts, which have never had any
-- **OpenSIPS upstream** — bug reproduction and fixes, mostly around dialog state, TLS and media
+- **OpenSIPS upstream** — reproducing and fixing memory-safety and concurrency bugs
+  (use-after-free, races, leaks) across the dialog, tm, Redis and media modules, and
+  writing regression tests so they stay fixed
 - **devstack-core** — making a full VoIP stack reproducible on an ARM laptop
 
 ### Tech & focus
