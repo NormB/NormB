@@ -7,6 +7,7 @@
 <a href="https://github.com/OpenSIPS/opensips/pulls?q=is%3Apr+author%3ANormB+is%3Amerged"><img alt="OpenSIPS" src="https://img.shields.io/badge/OpenSIPS-1a5f7a?style=flat-square"></a>
 <a href="https://github.com/kamailio/kamailio/pulls?q=is%3Apr+author%3ANormB+is%3Amerged"><img alt="Kamailio" src="https://img.shields.io/badge/Kamailio-2b6cb0?style=flat-square"></a>
 <a href="https://github.com/signalwire/freeswitch/pulls?q=is%3Apr+author%3ANormB+is%3Amerged"><img alt="FreeSWITCH" src="https://img.shields.io/badge/FreeSWITCH-0b5f73?style=flat-square"></a>
+<a href="https://github.com/asterisk/asterisk/issues?q=author%3ANormB"><img alt="Asterisk" src="https://img.shields.io/badge/Asterisk-c8412a?style=flat-square"></a>
 <img alt="rtpengine" src="https://img.shields.io/badge/rtpengine-3c6e57?style=flat-square">
 <img alt="Rust" src="https://img.shields.io/badge/Rust-b7410e?style=flat-square&logo=rust&logoColor=white">
 <img alt="C" src="https://img.shields.io/badge/C-4b5563?style=flat-square&logo=c&logoColor=white">
@@ -16,7 +17,7 @@
 I build and debug the parts of telephony that carry actual calls: SIP proxies,
 media relays, and the tooling around them. I have been contributing upstream
 since 2006. Most of my work is on **OpenSIPS**,
-**Kamailio**, **rtpengine** and **FreeSWITCH** — upstream where it belongs, and
+**Kamailio**, **rtpengine**, **FreeSWITCH** and **Asterisk** — upstream where it belongs, and
 in my own tools where nothing suitable existed.
 
 ---
@@ -85,13 +86,16 @@ and ClueCon.
 
 ### Shipped upstream
 
-- **The OpenSIPS PostgreSQL driver** — I rewrote `db_postgres` back in the OpenSER
-  days ([2006](https://github.com/OpenSIPS/opensips/commit/2d80fcf1cfed82680a016fe723da03a303f73aff)), adding connection pooling and fetch support, and have been its
-  most active contributor since.
-- **TLS for PostgreSQL in OpenSIPS** — `db_postgres` `use_tls`, letting any OpenSIPS
-  module reach Postgres over TLS via a `tls_mgm` client domain.
-- **Networking enhancements** across the `dispatcher`, `db_mysql`, `cachedb_redis`
-  and `rtpengine` modules.
+Features and fixes that landed in other people's projects, oldest first.
+
+| When | What |
+|---|---|
+| 2006 | **[The OpenSIPS PostgreSQL driver](https://github.com/OpenSIPS/opensips/commit/2d80fcf1cfed82680a016fe723da03a303f73aff)** — rewrote `db_postgres` in the OpenSER days, adding connection pooling and fetch support. 58 commits to the module between 2006 and 2021, third by commit count ([module docs](https://docs.opensips.org/manual/3-6/modules/db_postgres/)). |
+| 2008–2009 | **[FreeRADIUS patches for CDRTool](https://github.com/AGProjects/cdrtool/tree/master/contrib/freeradius-brandinger)** — FreeRADIUS could not account for failed SIP sessions. Five patches adding acct type Failed (15) and MySQL stored-procedure support, carried in AG Projects' CDRTool as `contrib/freeradius-brandinger/` and referenced from its install guide. |
+| 2019 | **[mod_mosquitto](https://github.com/freeswitch/mod_mosquitto)** — FreeSWITCH event handler bridging FreeSWITCH events to an MQTT broker. Written from scratch; now maintained upstream under the FreeSWITCH org. |
+| 2021 | **[TLS for PostgreSQL in OpenSIPS](https://github.com/OpenSIPS/opensips/pull/2644)** — `db_postgres` `use_tls`, letting any OpenSIPS module reach Postgres over TLS via a `tls_mgm` client domain. |
+| 2024–2025 | **Networking enhancements across four OpenSIPS modules** — [dispatcher `ping_sock` partition parameter](https://github.com/OpenSIPS/opensips/pull/3527), [MySQL Unix-socket connections](https://github.com/OpenSIPS/opensips/pull/3565), [Redis MOVED redirection](https://github.com/OpenSIPS/opensips/pull/3639), and [per-socket rtpengine command routing](https://github.com/OpenSIPS/opensips/pull/3617). |
+| 2024 | Reported **[asterisk/asterisk#651](https://github.com/asterisk/asterisk/issues/651)** — MySQL 8.3 turned `qualify` into a reserved word, breaking Asterisk's alembic table scripts; fixed upstream. |
 
 ### Contact
 
