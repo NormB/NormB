@@ -1,0 +1,160 @@
+# How OpenSIPS Solved a Tricky SIPREC Problem
+
+*Adapted from a talk given at the OpenSIPS Summit 2021 (Distributed), 7 September 2021.*
+
+Call recording looks like a solved problem until you put a specific recorder
+behind it. This is the story of one such case: SIPREC into FreeSWITCH, why it
+does not work, and the OpenSIPS module that fixed it.
+
+## SIPREC in one paragraph
+
+SIPREC is the Session Recording Protocol. It lets a proxy or SBC fork the media
+between two parties — either to listen live or to store the audio. When an
+automated voice tells you the call may be monitored or recorded, this is the
+machinery behind that sentence. In the PSTN era it was a hardware wiretap; SIP
+was extended so the fork happens in software.
+
+The legitimate reasons are familiar: quality monitoring in contact centers,
+agent training, regulatory compliance in financial services, and business
+analytics.
+
+The legal position deserves more attention than it usually gets. In the United
+States, every state regulates call recording — some require one-party consent,
+some all-party, some a variation of each. In the EU it falls under GDPR and the
+financial instruments directive. As far as I could determine, **every country
+in the world regulates recording or tapping a call.** If you deploy this,
+understand your local and national obligations first.
+
+## A naming trap worth knowing
+
+SIPREC defines two roles:
+
+- the **Session Recording Client (SRC)**
+- the **Session Recording Server (SRS)**
+
+The intuition is backwards. The SBC — the large, full-featured box doing the
+forking — is the *client*, because it initiates the request. The small,
+single-purpose recorder sitting off to the side is the *server*. Everyone
+trips over this once.
+
+## The shape of the problem
+
+When the SRC forks a call, it sends an INVITE to the recording server whose SDP
+carries **more than one m-line**. In the simplest useful case, two: one stream
+for Alice→Bob audio, one for Bob→Alice.
+
+It could just as easily be four — Alice→SBC, SBC→Alice, SBC→Bob, Bob→SBC. The
+SRC decides how many streams to fork and what each represents. Two is enough to
+expose the problem.
+
+```
+INVITE (SDP)
+m=audio
+a=label:1 (Alice to Bob)
+m=audio
+a=label:2 (Bob to Alice)
+```
+
+The problem is this: **FreeSWITCH cannot handle multiple media streams within a
+single call.**
+
+That is not a misconfiguration. Sangoma ran into it years earlier and solved it
+by modifying mod_sofia, the SIP stack inside FreeSWITCH. Their own description
+of the work was that the modifications are "decently complex and non-trivial."
+Rewriting a SIP stack was not something I was going to take on to get one
+feature working.
+
+## The proof of concept: drachtio
+
+There is another way through, and it is genuinely clever. Dave Horton's
+**drachtio** is a Node.js SIP application server, and it has a SIPREC
+application. It works like this:
+
+1. Split the two m-lines apart.
+2. Send one media stream to FreeSWITCH; hold on to the other.
+3. FreeSWITCH bridges that inbound call to a new outbound call back to drachtio.
+4. drachtio links the two media streams together.
+5. It returns a single 200 OK to the SRC.
+
+It works, and there is nothing wrong with the engineering. We proof-of-concepted
+it successfully. But for production we wanted something with fewer moving parts,
+for reasons mostly unrelated to this particular flow.
+
+## The production answer: `b2b_sdp_demux`
+
+The solution that shipped is an OpenSIPS module written by Razvan Crainea:
+**`b2b_sdp_demux`**.
+
+It parses the multiple m-lines out of the incoming SDP and generates **one
+INVITE per media stream**. Two m-lines in, two INVITEs out. FreeSWITCH answers
+200 OK to each, and the module reassembles those responses into the single
+response the SRC is expecting.
+
+*Demux* is demultiplexing, and that is exactly what it does.
+
+This models the situation more honestly than the bridging approach. SIPREC
+streams really are one-way, and here they arrive at FreeSWITCH as two
+independent **inbound** calls. There is no inbound-then-outbound dance, and no
+external process holding the two legs together.
+
+## Two implementation notes
+
+**SIPREC metadata is XML.** The metadata arriving with the INVITE is an XML
+document, and you will be parsing it — pulling the associate-time out of it is
+a reasonable first step, with a good deal more available once you start
+digging.
+
+Here is the whole of it:
+
+```
+loadmodule b2b_sdp_demux.so
+
+route[...] {
+    $xml(siprec) = $(rb(application/rs-metadata+xml));
+    $var(headers) = "X-Associate-Time: " + $xml(siprec/recording/group/associate-time.val);
+    $avp(headers) = $var(headers) + "X-Leg: Alice\r\n";
+    $avp(headers) = $var(headers) + "X-Leg: Bob\r\n";
+    b2b_sdp_demux("sip:SIPREC-SRS@srs.example.com", $avp(headers));
+}
+
+local_route {
+    ds_select_dst(...);
+}
+```
+
+**You must use `local_route`.** The usual relay and forward functions do not
+apply here. The INVITEs leaving OpenSIPS are brand-new messages generated by
+the module — that is what the *back-to-back* in `b2b_` refers to — not messages
+being forwarded from somewhere else. Anything you want to do to them, including
+using `dispatcher` to choose which FreeSWITCH instance receives them, happens in
+`local_route`. It is a small quirk, but it will stop you cold if you do not know it.
+
+## One thing SIPREC does not do
+
+A question came up afterwards about transfers, and the answer reveals something
+structural: **SIPREC media is one-way.** Nothing flows from the recording server
+back to the client to manage or maintain call state.
+
+So the call state between Alice and Bob is untouched by recording. If Alice
+transfers to Sally, that is ordinary SIP between Alice, the SBC and Bob. Holds,
+transfers and conferencing are all standard. The SRC — the SBC — decides what
+media gets sent to the recording server, and that is the whole of it.
+
+## Takeaway
+
+`b2b_sdp_demux` solves the SDP demultiplexing problem SIPREC introduces, and
+makes OpenSIPS a practical recording server in front of FreeSWITCH.
+
+SIPREC itself is specified across five RFCs, in considerably more detail than
+any conference talk can cover:
+
+- **RFC 6341** — Use Cases and Requirements for SIP-Based Media Recording (SIPREC)
+- **RFC 7245** — An Architecture for Media Recording Using the Session Initiation Protocol
+- **RFC 7865** — Session Initiation Protocol (SIP) Recording Metadata
+- **RFC 7866** — Session Recording Protocol
+- **RFC 8068** — Session Initiation Protocol (SIP) Recording Call Flows
+
+---
+
+*Reconstructed from the OpenSIPS Summit Distributed 2021 recording (Day 2,
+7 September 2021). The original slides are no longer available online.*

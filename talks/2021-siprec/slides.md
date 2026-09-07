@@ -1,0 +1,163 @@
+# How OpenSIPS Solved a Tricky SIPREC Problem
+
+**Norman Brandinger — Five9**
+OpenSIPS Summit Distributed 2021 · Day 2, 7 September 2021
+Recording: `youtube.com/watch?v=JZ1hFDWlcFs` · segment **02:07:22 – 02:28:39**
+
+Deck length: **21 slides**. Footer on every slide reads
+*"Norm Brandinger - Five9 — OpenSIPS Summit Distributed 2021 —"* with a Five9
+logo top-right.
+
+> **Provenance.** Slides marked ✅ were read directly from 1080p video frames —
+> titles, numbers, code and diagram labels are verbatim. Slides marked ○ were
+> not separately captured; their titles and numbers are unknown and their
+> content is summarised from the narration. Nothing here is invented.
+
+---
+
+## ✅ 2 — Outline
+- What SIPREC is
+- A deeper look at the protocol
+- The specific problem
+- The solution
+- References
+
+## ○ 3 — What is SIPREC?
+The Session Recording Protocol. A proxy or SBC **forks the media** between
+caller and callee — either to listen live (eavesdropping) or to store it
+(recording). "This call may be monitored or recorded" is this mechanism.
+Formerly a hardware wiretap in the PSTN; now SIP forks the media.
+
+## ✅ 4 — Session Recording Protocol (SIPREC)
+
+## ○ 5–7 — Why record, and the legal position
+Legitimate drivers: call-centre quality monitoring, agent training, legal and
+regulatory compliance in financial institutions, business analytics.
+
+The PSA: in the **US**, every state regulates recording — one-party consent,
+all-party consent, or a variation. In the **EU**, GDPR and the financial
+instruments directive. Effectively **every country** regulates recording or
+tapping a call. Understand your local and national obligations first.
+
+## ✅ 8 — Session Recording Protocol (SIPREC)
+
+## ✅ 9 — SIPREC Components
+- **SRC** — Session Recording *Client*
+- **SRS** — Session Recording *Server*
+
+The naming trap: the full-featured SBC doing the forking is the **client**,
+because it initiates the request. The small single-purpose recorder is the
+**server**.
+
+## ✅ 10 — SIPREC Components (SBC)
+Simplified topology — media relay and OpenSIPS collapsed into one SBC box
+handling both SIP and RTP, to keep the diagrams readable.
+
+## ○ 11 — SIPREC call flow
+Alice and Bob in the standard SIP trapezoid; forked media plus SIP metadata to
+the SRS so it can identify the call being recorded. Diagram adapted from the
+OpenSIPS website.
+
+## ✅ 12 — FreeSWITCH - Session Recording Server (SRS)
+*Diagram: Alice ↔ SBC (SRC) ↔ Bob, with forked media down to FreeSWITCH (SRS).
+Legend boxes "Alice to Bob" (green) and "Bob to Alice" (blue).*
+
+```
+INVITE (SDP)
+m=audio
+a=label:1 (Alice to Bob)
+m=audio
+a=label:2 (Bob to Alice)
+```
+
+Two m-lines, each tagged with an `a=label`. This is the INVITE that breaks.
+
+## ○ 13–14 — Why two m-lines and not four?
+Four (Alice→SBC, SBC→Alice, SBC→Bob, Bob→SBC) is entirely possible — the SRC
+decides how many streams to fork and what each represents. Two is enough to
+expose the problem.
+
+## ✅ 15 — SIPREC - Multiple media streams
+- **Sangoma created SIPREC modifications to FreeSWITCH (`mod_sofia`) for their
+  SBC product**
+  - Modifications are decently complex, non-trivial
+  - Not just one tweak here and there
+- **Drachtio**
+  - Shout out to Dave Horton, the author
+  - Splits or demultiplexes the media flows (`a=media`)
+    - Sends one INVITE to FreeSWITCH which answers the call
+    - FreeSWITCH creates a new call and sends an INVITE to Drachtio
+    - FreeSWITCH bridges the two calls together
+    - Drachtio answers the INVITE from FreeSWITCH and matches it to the
+      INVITE it previously sent to FreeSWITCH
+    - Drachtio sends a 200 OK to the SBC (SRC) using info from both INVITES
+
+## ✅ 16 — SIPREC - Multiple media streams
+Continuation. Drachtio worked and was used for proof of concept, but something
+more production-ready was wanted for deployment.
+
+## ✅ 17 — OpenSIPS - b2b_sdp_demux
+*Diagram: same topology, but the SRS is now **OpenSIPS (SRS)**, which emits two
+separate INVITEs to **FreeSWITCH**:*
+
+```
+INVITE  m=audio (Alice to Bob)
+INVITE  m=audio (Bob to Alice)
+```
+
+Demux = demultiplexing. Two one-way streams, both inbound to FreeSWITCH — no
+bridging dance, no external process stitching legs together.
+
+## ✅ 18 — OpenSIPS - b2b_sdp_demux
+
+```
+loadmodule b2b_sdp_demux.so
+
+route[...] {
+    $xml(siprec) = $(rb(application/rs-metadata+xml));
+    $var(headers) = "X-Associate-Time: " + $xml(siprec/recording/group/associate-time.val);
+    $avp(headers) = $var(headers) + "X-Leg: Alice\r\n";
+    $avp(headers) = $var(headers) + "X-Leg: Bob\r\n";
+    b2b_sdp_demux("sip:SIPREC-SRS@srs.example.com", $avp(headers));
+}
+
+local_route {
+    ds_select_dst(...);
+}
+```
+
+Notes from the narration:
+- SIPREC metadata is **XML** (`application/rs-metadata+xml`); this pulls
+  `associate-time` out as a starting point.
+- **`local_route` is required.** The usual relay/forward functions don't apply —
+  these are brand-new INVITEs generated by OpenSIPS (hence *back-to-back*), not
+  messages being forwarded.
+- `ds_select_dst()` (dispatcher) chooses which FreeSWITCH receives them.
+
+## ○ 19 — *(not captured)*
+
+## ✅ 20 — SIPREC - References
+- **RFC 6341** — Use Cases and Requirements for SIP-Based Media Recording (SIPREC)
+- **RFC 7245** — An Architecture for Media Recording Using the Session Initiation Protocol
+- **RFC 7865** — Session Initiation Protocol (SIP) Recording Metadata
+- **RFC 7866** — Session Recording Protocol
+- **RFC 8068** — Session Initiation Protocol (SIP) Recording Call Flows
+
+## ✅ 21 — Take-Away Message
+
+> **OpenSIPS (b2b_sdp_demux) solves the SDP demuxing problem introduced by SIPREC**
+
+- Norm Brandinger
+  - Email: (a Five9 address, shown on the original slide; redacted here as it is no longer current)
+
+---
+
+## From the Q&A
+
+**On transfers and conferencing.** SIPREC media is one-way — nothing flows from
+the recording server back to the client to manage call state. So call state
+between Alice and Bob is untouched. If Alice transfers to Sally, that is
+ordinary SIP between Alice, the SBC and Bob. Holds, transfers and conferencing
+are all standard; the SRC decides what media reaches the recording server.
+
+**Module author:** Razvan Crainea, who was online to take questions.
