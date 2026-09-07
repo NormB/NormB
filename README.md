@@ -97,4 +97,5 @@ and ClueCon.
 
 - **[sipnab.com](https://sipnab.com)** — project site
 - **[n.brandinger@gmail.com](mailto:n.brandinger@gmail.com)**
+- **[linkedin.com/in/nbrandinger](https://www.linkedin.com/in/nbrandinger/)**
 - Bugs and feature requests are best filed as issues on the relevant repository
