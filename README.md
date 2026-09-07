@@ -84,6 +84,8 @@ and ClueCon.
 | 2014 | Advanced SIP routing with OpenSIPS modules — [slides](https://opensips.org/pub/events/2014-08-04_OpenSIPS-Summit_Chicago/Norman_Brandinger-OpenSIPS_Summit_2014-Advanced_SIP_Routing_with_OpenSIPS_modules.pdf) | OpenSIPS Summit, Chicago |
 | 2013 | High availability with OpenSIPS — [slides](https://opensips.org/pub/events/2013-08-05_OpenSIPS-Summit_Chicago/Norman_Brandinger-HA_with_OpenSIPS.pdf) | OpenSIPS Summit, Chicago |
 
+Technical reviewer for **FreeSWITCH 1.2** (Packt Publishing, second edition, May 2013, ISBN 978-1-78216-100-4).
+
 ### Shipped upstream
 
 Features and fixes that landed in other people's projects, oldest first.
@@ -94,8 +96,10 @@ Features and fixes that landed in other people's projects, oldest first.
 | 2008–2009 | **[FreeRADIUS patches for CDRTool](https://github.com/AGProjects/cdrtool/tree/master/contrib/freeradius-brandinger)** — FreeRADIUS could not account for failed SIP sessions. Five patches adding acct type Failed (15) and MySQL stored-procedure support, carried in AG Projects' CDRTool as `contrib/freeradius-brandinger/` and referenced from its install guide. |
 | 2019 | **[mod_mosquitto](https://github.com/freeswitch/mod_mosquitto)** — FreeSWITCH event handler bridging FreeSWITCH events to an MQTT broker. Written from scratch; now maintained upstream under the FreeSWITCH org. |
 | 2021 | **[TLS for PostgreSQL in OpenSIPS](https://github.com/OpenSIPS/opensips/pull/2644)** — `db_postgres` `use_tls`, letting any OpenSIPS module reach Postgres over TLS via a `tls_mgm` client domain. |
-| 2024–2025 | **Networking enhancements across four OpenSIPS modules** — [dispatcher `ping_sock` partition parameter](https://github.com/OpenSIPS/opensips/pull/3527), [MySQL Unix-socket connections](https://github.com/OpenSIPS/opensips/pull/3565), [Redis MOVED redirection](https://github.com/OpenSIPS/opensips/pull/3639), and [per-socket rtpengine command routing](https://github.com/OpenSIPS/opensips/pull/3617). |
 | 2024 | Reported **[asterisk/asterisk#651](https://github.com/asterisk/asterisk/issues/651)** — MySQL 8.3 turned `qualify` into a reserved word, breaking Asterisk's alembic table scripts; fixed upstream. |
+| 2024–2025 | **Networking enhancements across four OpenSIPS modules** — [dispatcher `ping_sock` partition parameter](https://github.com/OpenSIPS/opensips/pull/3527), [MySQL Unix-socket connections](https://github.com/OpenSIPS/opensips/pull/3565), [Redis MOVED redirection](https://github.com/OpenSIPS/opensips/pull/3639), and [per-socket rtpengine command routing](https://github.com/OpenSIPS/opensips/pull/3617). |
+| 2026 | **Kamailio fixes** — [tm transaction leak on drop](https://github.com/kamailio/kamailio/pull/4644), [dialog race in `link_dlg_profile`](https://github.com/kamailio/kamailio/pull/4591), [swapped comparison in core atomics](https://github.com/kamailio/kamailio/pull/4638), and a [NULL deref in rtpengine DTMF handling](https://github.com/kamailio/kamailio/pull/4637). |
+| 2026 | **[Per-key TTL in the NATS C client](https://github.com/nats-io/nats.c/pull/1000)** — brought `nats.c` KV to parity with nats.go's per-key TTL and limit markers, plus a [follow-up](https://github.com/nats-io/nats.c/pull/1001) preserving the create-path error through the marker-aware retry. |
 
 ### Contact
 
