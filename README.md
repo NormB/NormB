@@ -62,17 +62,34 @@ Ops            Docker · Prometheus · Grafana · HAProxy · libpcap
 Testing        SIPp · tcpdump/pcap analysis · fault reproduction
 ```
 
-Language mix across repositories I own — forks excluded, so it reflects
-code I actually wrote:
 
-```
-Rust        ████████████████████████████······  82.4%
-Shell       ███·······························   8.0%
-Python      ██································   4.5%
-C           █·································   1.4%
-JavaScript  █·································   1.3%
-HTML        █·································   0.7%
-```
+### Talks
+
+Speaking on SIP and real-time media since 2014, mostly at the OpenSIPS Summit
+and ClueCon.
+
+| Year | Talk | Venue |
+|---|---|---|
+| 2026 | OpenSIPS Development with an AI Apprentice: Core Patches, Redis Clustering, and a Rust Module — [recording](https://www.youtube.com/watch?v=1m9vrvvI9fY&t=10626s) | OpenSIPS Summit, Bucharest |
+| 2025 | Networking Enhancements to the Dispatcher, MySQL, Redis & rtpengine modules | OpenSIPS Summit |
+| 2024 | Foundations of building a highly available OpenSIPS / rtpengine system | OpenSIPS Summit, Valencia |
+| 2023 | An experimental module written in Rust — [slides](https://www.opensips.org/events/Summit-2023Houston/assets/presentations/OpenSIPS_Summit_2023_Norman_Brandinger_An_experimental_module_written_in_Rust.pdf) | OpenSIPS Summit, Houston |
+| 2021 | How OpenSIPS solved a tricky SIPREC problem | OpenSIPS Distributed Summit |
+| 2020 | mod_mosquitto — building a FreeSWITCH event_handler module | ClueCon |
+| 2018 | Mid-registrar and registration redirection | OpenSIPS Summit |
+| 2017 | OpenSIPS & Vonage — A Great Call | OpenSIPS Summit |
+| 2014 | Advanced SIP routing with FreeSWITCH modules | ClueCon |
+| 2014 | Advanced SIP routing with OpenSIPS modules | OpenSIPS Summit |
+
+### Shipped upstream
+
+- **[mod_mosquitto](https://github.com/freeswitch/mod_mosquitto)** — FreeSWITCH event handler
+  bridging FreeSWITCH events to an MQTT broker. Written from scratch; now maintained
+  upstream as its own repository.
+- **TLS for PostgreSQL in OpenSIPS** — `db_postgres` `use_tls`, letting any OpenSIPS
+  module reach Postgres over TLS via a `tls_mgm` client domain.
+- **Networking enhancements** across the `dispatcher`, `db_mysql`, `cachedb_redis`
+  and `rtpengine` modules.
 
 ### Contact
 
