@@ -2,7 +2,9 @@
 
 # Norm Brandinger
 
-**SIP and real-time media infrastructure — in Rust and C**
+**Telecom systems engineer**
+
+SIP proxies, media relays, and the C and Rust underneath
 
 <a href="https://github.com/OpenSIPS/opensips/pulls?q=is%3Apr+author%3ANormB+is%3Amerged"><img alt="OpenSIPS" src="https://img.shields.io/badge/OpenSIPS-1a5f7a?style=flat-square"></a>
 <a href="https://github.com/kamailio/kamailio/pulls?q=is%3Apr+author%3ANormB+is%3Amerged"><img alt="Kamailio" src="https://img.shields.io/badge/Kamailio-2b6cb0?style=flat-square"></a>
