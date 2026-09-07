@@ -13,7 +13,8 @@
 </div>
 
 I build and debug the parts of telephony that carry actual calls: SIP proxies,
-media relays, and the tooling around them. Most of my work is on **OpenSIPS**,
+media relays, and the tooling around them. I have been contributing upstream
+since 2006. Most of my work is on **OpenSIPS**,
 **Kamailio**, **rtpengine** and **FreeSWITCH** — upstream where it belongs, and
 in my own tools where nothing suitable existed.
 
@@ -83,6 +84,9 @@ and ClueCon.
 
 ### Shipped upstream
 
+- **The OpenSIPS PostgreSQL driver** — I rewrote `db_postgres` back in the OpenSER
+  days ([2006](https://github.com/OpenSIPS/opensips/commit/2d80fcf1cfed82680a016fe723da03a303f73aff)), adding connection pooling and fetch support, and have been its
+  most active contributor since.
 - **TLS for PostgreSQL in OpenSIPS** — `db_postgres` `use_tls`, letting any OpenSIPS
   module reach Postgres over TLS via a `tls_mgm` client domain.
 - **Networking enhancements** across the `dispatcher`, `db_mysql`, `cachedb_redis`
