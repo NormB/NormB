@@ -41,7 +41,6 @@ Merged pull requests. Every count links to the search that produces it.
 | [kamailio/kamailio](https://github.com/kamailio/kamailio/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **4** |
 | [signalwire/freeswitch](https://github.com/signalwire/freeswitch/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **4** |
 | [nats-io/nats.c](https://github.com/nats-io/nats.c/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **2** |
-| [Vonage/h2o-opensips](https://github.com/Vonage/h2o-opensips/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **2** |
 | [valkey-io/valkey-admin](https://github.com/valkey-io/valkey-admin/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **1** |
 
 ### Currently
