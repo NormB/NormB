@@ -64,20 +64,21 @@ Testing        SIPp · tcpdump/pcap analysis · fault reproduction
 
 ### Talks
 
-Speaking on SIP and real-time media since 2014, mostly at the OpenSIPS Summit
+Speaking on SIP and real-time media since 2013, mostly at the OpenSIPS Summit
 and ClueCon.
 
 | Year | Talk | Venue |
 |---|---|---|
 | 2026 | OpenSIPS Development with an AI Apprentice: Core Patches, Redis Clustering, and a Rust Module — [recording](https://www.youtube.com/watch?v=1m9vrvvI9fY&t=10626s) | OpenSIPS Summit, Bucharest |
-| 2025 | Networking Enhancements to the Dispatcher, MySQL, Redis & rtpengine modules | OpenSIPS Summit |
-| 2024 | Foundations of building a highly available OpenSIPS / rtpengine system | OpenSIPS Summit, Valencia |
+| 2025 | Networking Enhancements to the Dispatcher, MySQL, Redis & rtpengine modules — [slides](https://www.opensips.org/events/Summit-2025Amsterdam/assets/presentations/OpenSIPS_Summit_2025_Norman_Brandinger_Networking_Enhacements_for_3_6.pdf) | OpenSIPS Summit, Amsterdam |
+| 2024 | Foundations of building a highly available OpenSIPS / rtpengine system — [slides](https://opensips.org/events/Summit-2024Valencia/assets/presentations/OpenSIPS_Summit_2024_Norman_Brandinger_Highly_Available_OpenSIPS_RTPEengine_System.pdf) | OpenSIPS Summit, Valencia |
 | 2023 | An experimental module written in Rust — [slides](https://www.opensips.org/events/Summit-2023Houston/assets/presentations/OpenSIPS_Summit_2023_Norman_Brandinger_An_experimental_module_written_in_Rust.pdf) | OpenSIPS Summit, Houston |
 | 2021 | How OpenSIPS solved a tricky SIPREC problem | OpenSIPS Distributed Summit |
 | 2020 | mod_mosquitto — building a FreeSWITCH event_handler module | ClueCon |
-| 2018 | Mid-registrar and registration redirection | OpenSIPS Summit |
+| 2018 | Mid-registrar and registration redirection — [slides](https://opensips.org/events/Summit-2018Amsterdam/assets/presentations/OpenSIPS%20Summit%202018%20-%20Norman%20Brandinger%20-%20Using%20the%20mid_registrar%20module%20along%20with%20registration%20redirection.pdf) | OpenSIPS Summit, Amsterdam |
 | 2014 | Advanced SIP routing with FreeSWITCH modules | ClueCon |
-| 2014 | Advanced SIP routing with OpenSIPS modules | OpenSIPS Summit |
+| 2014 | Advanced SIP routing with OpenSIPS modules — [slides](https://opensips.org/pub/events/2014-08-04_OpenSIPS-Summit_Chicago/Norman_Brandinger-OpenSIPS_Summit_2014-Advanced_SIP_Routing_with_OpenSIPS_modules.pdf) | OpenSIPS Summit, Chicago |
+| 2013 | High availability with OpenSIPS — [slides](https://opensips.org/pub/events/2013-08-05_OpenSIPS-Summit_Chicago/Norman_Brandinger-HA_with_OpenSIPS.pdf) | OpenSIPS Summit, Chicago |
 
 ### Shipped upstream
 
