@@ -46,6 +46,25 @@ Merged pull requests. Every count links to the search that produces it.
 | [signalwire/freeswitch](https://github.com/signalwire/freeswitch/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **4** |
 | [nats-io/nats.c](https://github.com/nats-io/nats.c/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **2** |
 | [valkey-io/valkey-admin](https://github.com/valkey-io/valkey-admin/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **1** |
+| [Vocalocity/rtpcluster](https://github.com/Vocalocity/rtpcluster/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **4** |
+| [signalwire/SignaLWire-ML-examples](https://github.com/signalwire/SignaLWire-ML-examples/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **2** |
+| [OpenSIPS/sipssert-opensips-tests](https://github.com/OpenSIPS/sipssert-opensips-tests/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **1** |
+
+Counts hide the interesting part. A sample of what those changes actually were:
+
+- **Redis Cluster support for OpenSIPS** — hash-tag support ([#3815](https://github.com/OpenSIPS/opensips/pull/3815)), safer redirect
+  parsing ([#3854](https://github.com/OpenSIPS/opensips/pull/3854)), dynamic topology management ([#3855](https://github.com/OpenSIPS/opensips/pull/3855)) and Unix-socket
+  transport with lazy connect ([#3856](https://github.com/OpenSIPS/opensips/pull/3856))
+- **[WebSocket fragment reassembly in the Janus module](https://github.com/OpenSIPS/opensips/pull/3840)** — RFC 6455 §5.4; fragmented
+  frames were previously rejected outright
+- **[Use-after-free and race in dialog cluster replication](https://github.com/OpenSIPS/opensips/pull/3860)**, and a
+  **[race in `sockets_mgm` receive_fd](https://github.com/OpenSIPS/opensips/pull/3820)** that spun the process on reload
+- **[STIR/SHAKEN: strip RFC 4904 user parameters](https://github.com/OpenSIPS/opensips/pull/3906)** from telephone numbers
+- **FreeSWITCH core** — [`switch_rtp` max-missed-packets handling](https://github.com/signalwire/freeswitch/pull/1167),
+  [XML generation](https://github.com/signalwire/freeswitch/pull/953), [a mod_v8 compile warning](https://github.com/signalwire/freeswitch/pull/970) and
+  [switch_core parameter docs](https://github.com/signalwire/freeswitch/pull/795)
+- **[Password handling in valkey-admin](https://github.com/valkey-io/valkey-admin/pull/242)** —
+  decrypt passthrough and double-encryption fixes
 
 ### Currently
 
