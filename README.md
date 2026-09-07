@@ -37,7 +37,7 @@ in my own tools where nothing suitable existed.
 | **[devstack-core](https://github.com/NormB/devstack-core)** | Local VoIP development infrastructure — Docker, Postgres, MongoDB, RabbitMQ, Prometheus, Grafana. | [![stars](https://img.shields.io/github/stars/NormB/devstack-core?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/NormB/devstack-core) |
 | **[voip-stack](https://github.com/NormB/voip-stack)** | Production-shaped OpenSIPS + Asterisk + rtpengine deployment. | [![stars](https://img.shields.io/github/stars/NormB/voip-stack?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/NormB/voip-stack) |
 | **[homebrew-tap](https://github.com/NormB/homebrew-tap)** | `brew install NormB/tap/sipnab` | |
-| **[mod_mosquitto](https://github.com/freeswitch/mod_mosquitto)** | FreeSWITCH event handler bridging FreeSWITCH events to an MQTT broker. Written from scratch; maintained upstream under the FreeSWITCH org. | [![stars](https://img.shields.io/github/stars/freeswitch/mod_mosquitto?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/freeswitch/mod_mosquitto) |
+| **[mod_mosquitto](https://github.com/freeswitch/mod_mosquitto)** | FreeSWITCH ↔ MQTT event handler. Lives upstream under the FreeSWITCH org. | [![stars](https://img.shields.io/github/stars/freeswitch/mod_mosquitto?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/freeswitch/mod_mosquitto) |
 
 **Not yet upstream.** Three branches live in my
 [OpenSIPS fork](https://github.com/NormB/opensips) while they mature:
