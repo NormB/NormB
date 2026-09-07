@@ -1,11 +1,11 @@
 # How OpenSIPS Solved a Tricky SIPREC Problem
 
-**Norman Brandinger — Five9**
+**Norman Brandinger**
 OpenSIPS Summit Distributed 2021 · Day 2, 7 September 2021
 Recording: `youtube.com/watch?v=JZ1hFDWlcFs` · segment **02:07:22 – 02:28:39**
 
 Deck length: **21 slides**. Footer on every slide reads
-*"Norm Brandinger - Five9 — OpenSIPS Summit Distributed 2021 —"* with a Five9
+*"Norm Brandinger — OpenSIPS Summit Distributed 2021 —"* with an employer
 logo top-right.
 
 > **Provenance.** Slides marked ✅ were read directly from 1080p video frames —
@@ -148,7 +148,7 @@ Notes from the narration:
 > **OpenSIPS (b2b_sdp_demux) solves the SDP demuxing problem introduced by SIPREC**
 
 - Norm Brandinger
-  - Email: (a Five9 address, shown on the original slide; redacted here as it is no longer current)
+  - Email address shown on the original slide — redacted here, no longer current
 
 ---
 
