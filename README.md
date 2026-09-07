@@ -76,7 +76,6 @@ and ClueCon.
 | 2021 | How OpenSIPS solved a tricky SIPREC problem | OpenSIPS Distributed Summit |
 | 2020 | mod_mosquitto — building a FreeSWITCH event_handler module | ClueCon |
 | 2018 | Mid-registrar and registration redirection | OpenSIPS Summit |
-| 2017 | OpenSIPS & Vonage — A Great Call | OpenSIPS Summit |
 | 2014 | Advanced SIP routing with FreeSWITCH modules | ClueCon |
 | 2014 | Advanced SIP routing with OpenSIPS modules | OpenSIPS Summit |
 
