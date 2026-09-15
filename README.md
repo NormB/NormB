@@ -22,8 +22,8 @@ since 2006. Most of my work is on **OpenSIPS**,
 **Kamailio**, **rtpengine**, **FreeSWITCH** and **Asterisk** — upstream where it belongs, and
 in my own tools where nothing suitable existed.
 
-**20 years contributing upstream** (since 2006) · **68 merged pull requests** across
-9 upstream projects · **12 conference talks**, 2007–2026
+**20 years contributing upstream** (since 2006) · **64 merged pull requests** across
+8 upstream projects · **12 conference talks**, 2007–2026
 
 ---
 
@@ -75,9 +75,16 @@ Two decades of features and fixes that landed in other people's projects, oldest
 | [signalwire/freeswitch](https://github.com/signalwire/freeswitch/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **4** |
 | [nats-io/nats.c](https://github.com/nats-io/nats.c/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **2** |
 | [valkey-io/valkey-admin](https://github.com/valkey-io/valkey-admin/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **1** |
-| [Vocalocity/rtpcluster](https://github.com/Vocalocity/rtpcluster/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **4** |
 | [signalwire/SignaLWire-ML-examples](https://github.com/signalwire/SignaLWire-ML-examples/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **2** |
 | [OpenSIPS/sipssert-opensips-tests](https://github.com/OpenSIPS/sipssert-opensips-tests/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **1** |
+
+**Plus 6 merged into employer forks** of projects listed above, kept separate because a fork
+is not a distinct upstream project:
+
+| Fork | Forked from | Merged |
+|---|---|---|
+| [Vocalocity/rtpcluster](https://github.com/Vocalocity/rtpcluster/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | [sippy/rtp_cluster](https://github.com/sippy/rtp_cluster) | **4** |
+| [Vonage/h2o-opensips](https://github.com/Vonage/h2o-opensips/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | [OpenSIPS/opensips](https://github.com/OpenSIPS/opensips) | **2** |
 
 </details>
 
