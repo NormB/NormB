@@ -153,7 +153,7 @@ and ClueCon.
 | 2024 | Foundations of building a highly available OpenSIPS / rtpengine system — [slides](https://opensips.org/events/Summit-2024Valencia/assets/presentations/OpenSIPS_Summit_2024_Norman_Brandinger_Highly_Available_OpenSIPS_RTPEengine_System.pdf) | OpenSIPS Summit, Valencia |
 | 2023 | An experimental module written in Rust — [slides](https://www.opensips.org/events/Summit-2023Houston/assets/presentations/OpenSIPS_Summit_2023_Norman_Brandinger_An_experimental_module_written_in_Rust.pdf) | OpenSIPS Summit, Houston |
 | 2021 | How OpenSIPS solved a tricky SIPREC problem — [recording](https://www.youtube.com/watch?v=JZ1hFDWlcFs&t=7642s) · [slides](talks/2021-siprec/slides.md) · [writeup](talks/2021-siprec/article.md) | OpenSIPS Summit, Distributed |
-| 2020 | [mod_mosquitto](https://github.com/freeswitch/mod_mosquitto) — building a FreeSWITCH event_handler module | ClueCon |
+| 2020 | [mod_mosquitto](https://github.com/freeswitch/mod_mosquitto) — building a FreeSWITCH event_handler module — [slides](talks/2020-cluecon/how-to-build-a-freeswitch-event-handler-module.pdf) · [notes](talks/2020-cluecon/) | ClueCon |
 
 
 <details>
