@@ -23,7 +23,7 @@ since 2006. Most of my work is on **OpenSIPS**,
 in my own tools where nothing suitable existed.
 
 **20 years contributing upstream** (since 2006) · **68 merged pull requests** across
-9 upstream projects · **10 conference talks**, 2013–2026
+9 upstream projects · **12 conference talks**, 2007–2026
 
 ---
 
@@ -55,9 +55,9 @@ Two decades of features and fixes that landed in other people's projects, oldest
 
 | When | What |
 |---|---|
-| 2006 | **[The OpenSIPS PostgreSQL driver](https://github.com/OpenSIPS/opensips/commit/2d80fcf1cfed82680a016fe723da03a303f73aff)** — rewrote `db_postgres` in the OpenSER days, adding connection pooling and fetch support. 58 commits to the module between 2006 and 2021, third by commit count ([module docs](https://docs.opensips.org/manual/3-6/modules/db_postgres/)). |
+| 2006 | **[The OpenSIPS PostgreSQL driver](https://github.com/OpenSIPS/opensips/commit/2d80fcf1cfed82680a016fe723da03a303f73aff)** — rewrote `db_postgres` in the OpenSER days, adding connection pooling and fetch support. Third-ranked contributor to the module in OpenSIPS' own documentation — DevScore 58, 1,501 lines added, active Aug 2006 – Oct 2021 ([module docs](https://docs.opensips.org/manual/3-6/modules/db_postgres/)). |
 | 2008–2009 | **[FreeRADIUS patches for CDRTool](https://github.com/AGProjects/cdrtool/tree/master/contrib/freeradius-brandinger)** — FreeRADIUS could not account for failed SIP sessions. Five patches adding acct type Failed (15) and MySQL stored-procedure support, carried in AG Projects' CDRTool as `contrib/freeradius-brandinger/` and referenced from its install guide. |
-| 2019 | **[mod_mosquitto](https://github.com/freeswitch/mod_mosquitto)** — FreeSWITCH event handler bridging FreeSWITCH events to an MQTT broker. Written from scratch; now maintained upstream under the FreeSWITCH org. |
+| 2020 | **[mod_mosquitto](https://github.com/freeswitch/mod_mosquitto)** — FreeSWITCH event handler bridging FreeSWITCH events to an MQTT broker. Written from scratch; now maintained upstream under the FreeSWITCH org. |
 | 2021 | **[TLS for PostgreSQL in OpenSIPS](https://github.com/OpenSIPS/opensips/pull/2644)** — `db_postgres` `use_tls`, letting any OpenSIPS module reach Postgres over TLS via a `tls_mgm` client domain. |
 | 2024 | Reported **[asterisk/asterisk#651](https://github.com/asterisk/asterisk/issues/651)** — MySQL 8.3 turned `qualify` into a reserved word, breaking Asterisk's alembic table scripts; fixed upstream. |
 | 2024–2025 | **Networking enhancements across four OpenSIPS modules** — [dispatcher `ping_sock` partition parameter](https://github.com/OpenSIPS/opensips/pull/3527), [MySQL Unix-socket connections](https://github.com/OpenSIPS/opensips/pull/3565), [Redis MOVED redirection](https://github.com/OpenSIPS/opensips/pull/3639), and [per-socket rtpengine command routing](https://github.com/OpenSIPS/opensips/pull/3617). |
@@ -80,6 +80,9 @@ Two decades of features and fixes that landed in other people's projects, oldest
 | [OpenSIPS/sipssert-opensips-tests](https://github.com/OpenSIPS/sipssert-opensips-tests/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **1** |
 
 </details>
+
+By year: **9 merged in 2024 · 13 in 2025 · 26 in 2026** — the stretch covered by the
+2026 Summit talk on AI-assisted development.
 
 Counts hide the interesting part. The OpenSIPS work alone spans at least a dozen
 modules — `cachedb_redis`, `dialog`, `tm`, `janus`, `rtpengine`, `b2b_entities`,
@@ -114,7 +117,7 @@ modules — `cachedb_redis`, `dialog`, `tm`, `janus`, `rtpengine`, `b2b_entities
 
 ### Talks
 
-Speaking on SIP and real-time media since 2013, mostly at the OpenSIPS Summit
+Speaking on SIP and real-time media since 2007, mostly at the OpenSIPS Summit
 and ClueCon.
 
 | Year | Talk | Venue |
@@ -128,14 +131,16 @@ and ClueCon.
 
 
 <details>
-<summary><b>Earlier talks, 2013–2018</b></summary>
+<summary><b>Earlier talks, 2007–2018</b></summary>
 
 | Year | Talk | Venue |
 |---|---|---|
 | 2018 | Mid-registrar and registration redirection — [slides](https://opensips.org/events/Summit-2018Amsterdam/assets/presentations/OpenSIPS%20Summit%202018%20-%20Norman%20Brandinger%20-%20Using%20the%20mid_registrar%20module%20along%20with%20registration%20redirection.pdf) | OpenSIPS Summit, Amsterdam |
+| 2017 | [OpenSIPS & Vonage - a great call](https://www.opensips.org/events/Summit-2017Amsterdam.html) | OpenSIPS Summit, Amsterdam |
 | 2014 | Advanced SIP routing with FreeSWITCH modules | ClueCon |
 | 2014 | Advanced SIP routing with OpenSIPS modules — [slides](https://opensips.org/pub/events/2014-08-04_OpenSIPS-Summit_Chicago/Norman_Brandinger-OpenSIPS_Summit_2014-Advanced_SIP_Routing_with_OpenSIPS_modules.pdf) | OpenSIPS Summit, Chicago |
 | 2013 | High availability with OpenSIPS — [slides](https://opensips.org/pub/events/2013-08-05_OpenSIPS-Summit_Chicago/Norman_Brandinger-HA_with_OpenSIPS.pdf) | OpenSIPS Summit, Chicago |
+| 2007 | VON | Boston |
 
 </details>
 
