@@ -10,7 +10,7 @@ SIP proxies, media relays, and the C and Rust underneath
 <a href="https://github.com/kamailio/kamailio/pulls?q=is%3Apr+author%3ANormB+is%3Amerged"><img alt="Kamailio" src="https://img.shields.io/badge/Kamailio-2b6cb0?style=flat-square"></a>
 <a href="https://github.com/signalwire/freeswitch/pulls?q=is%3Apr+author%3ANormB+is%3Amerged"><img alt="FreeSWITCH" src="https://img.shields.io/badge/FreeSWITCH-0b5f73?style=flat-square"></a>
 <a href="https://github.com/asterisk/asterisk/issues?q=author%3ANormB"><img alt="Asterisk" src="https://img.shields.io/badge/Asterisk-c8412a?style=flat-square"></a>
-<img alt="rtpengine" src="https://img.shields.io/badge/rtpengine-3c6e57?style=flat-square">
+<a href="https://github.com/sipwise/rtpengine/issues?q=author%3ANormB"><img alt="rtpengine" src="https://img.shields.io/badge/rtpengine-3c6e57?style=flat-square"></a>
 <img alt="Rust" src="https://img.shields.io/badge/Rust-b7410e?style=flat-square&logo=rust&logoColor=white">
 <img alt="C" src="https://img.shields.io/badge/C-4b5563?style=flat-square&logo=c&logoColor=white">
 
@@ -22,8 +22,12 @@ since 2006. Most of my work is on **OpenSIPS**,
 **Kamailio**, **rtpengine**, **FreeSWITCH** and **Asterisk** — upstream where it belongs, and
 in my own tools where nothing suitable existed.
 
+I also run this stack in production, which is where most of the bugs come from: nine years
+of Kamailio and OpenSIPS and eight of FreeSWITCH, carrying live traffic.
+
 **20 years contributing upstream** (since 2006) · **64 merged pull requests** across
-8 upstream projects · **12 conference talks**, 2007–2026
+8 upstream projects · **~20 upstream bug reports**, 4 of them crashes ·
+**48,000+ installs** of my two language servers · **12 conference talks**, 2007–2026
 
 ---
 
@@ -32,10 +36,11 @@ in my own tools where nothing suitable existed.
 | Project | What it is | |
 |---|---|---|
 | **[sipnab](https://github.com/NormB/sipnab)** · [sipnab.com](https://sipnab.com) | SIP & RTP capture, analysis and security. One binary, one dependency (libpcap). | [![stars](https://img.shields.io/github/stars/NormB/sipnab?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/NormB/sipnab) [![release](https://img.shields.io/github/v/release/NormB/sipnab?style=flat-square&labelColor=1c1917&color=555)](https://github.com/NormB/sipnab/releases) |
-| **[opensips-lsp](https://github.com/NormB/opensips-lsp)** | Language server for OpenSIPS routing scripts — completion, diagnostics, go-to-definition. | [![stars](https://img.shields.io/github/stars/NormB/opensips-lsp?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/NormB/opensips-lsp) |
-| **[kamailio-lsp](https://github.com/NormB/kamailio-lsp)** | The same, for Kamailio configuration files. | [![stars](https://img.shields.io/github/stars/NormB/kamailio-lsp?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/NormB/kamailio-lsp) |
+| **[opensips-lsp](https://github.com/NormB/opensips-lsp)** · [Open VSX](https://open-vsx.org/extension/NormB/opensips-lsp) | Language server for OpenSIPS routing scripts — completion, diagnostics, go-to-definition. SIP routing scripts had never had editor tooling. | [![installs](https://img.shields.io/open-vsx/dt/NormB/opensips-lsp?style=flat-square&label=installs&labelColor=1c1917&color=0b7285)](https://open-vsx.org/extension/NormB/opensips-lsp) |
+| **[kamailio-lsp](https://github.com/NormB/kamailio-lsp)** · [Open VSX](https://open-vsx.org/extension/NormB/kamailio-lsp) | The same, for Kamailio configuration files. SIP routing scripts had never had editor tooling. | [![installs](https://img.shields.io/open-vsx/dt/NormB/kamailio-lsp?style=flat-square&label=installs&labelColor=1c1917&color=0b7285)](https://open-vsx.org/extension/NormB/kamailio-lsp) |
 | **[devstack-core](https://github.com/NormB/devstack-core)** | Local VoIP development infrastructure — Docker, Postgres, MongoDB, RabbitMQ, Prometheus, Grafana. | [![stars](https://img.shields.io/github/stars/NormB/devstack-core?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/NormB/devstack-core) |
 | **[voip-stack](https://github.com/NormB/voip-stack)** | Production-shaped OpenSIPS + Asterisk + rtpengine deployment. | [![stars](https://img.shields.io/github/stars/NormB/voip-stack?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/NormB/voip-stack) |
+| **[opensips-experiment](https://github.com/NormB/opensips-experiment)** | An OpenSIPS module written in Rust — the experiment behind the 2023 Summit talk. | |
 | **[homebrew-tap](https://github.com/NormB/homebrew-tap)** | `brew install NormB/tap/sipnab` | |
 | **[mod_mosquitto](https://github.com/freeswitch/mod_mosquitto)** | FreeSWITCH ↔ MQTT event handler. Lives upstream under the FreeSWITCH org. | [![stars](https://img.shields.io/github/stars/freeswitch/mod_mosquitto?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/freeswitch/mod_mosquitto) |
 
@@ -89,7 +94,9 @@ is not a distinct upstream project:
 </details>
 
 By year: **9 merged in 2024 · 13 in 2025 · 26 in 2026** — the stretch covered by the
-2026 Summit talk on AI-assisted development.
+2026 Summit talk on AI-assisted development. The method is not delegation: I hold the design
+and the judgment, and use AI for the heavy lifting — correlating days of logs across dozens of
+servers into diagnosable patterns, and building the analysis scripts that follow.
 
 Counts hide the interesting part. The OpenSIPS work alone spans at least a dozen
 modules — `cachedb_redis`, `dialog`, `tm`, `janus`, `rtpengine`, `b2b_entities`,
@@ -112,6 +119,18 @@ modules — `cachedb_redis`, `dialog`, `tm`, `janus`, `rtpengine`, `b2b_entities
 - **[SIP→WebRTC transcoding regression tests](https://github.com/OpenSIPS/sipssert-opensips-tests/pull/33)** —
   four sipssert scenarios pinning down `rtp_relay` issue
   [#3902](https://github.com/OpenSIPS/opensips/issues/3902), contributed to the project's own test suite
+
+### Reported
+
+Roughly twenty defects found while running this stack in production and reported upstream,
+with reproductions. Four were crashes:
+
+| Project | Reported | Notable |
+|---|---|---|
+| [OpenSIPS](https://github.com/OpenSIPS/opensips/issues?q=author%3ANormB+is%3Aissue) | 15 | [segfault in `b2b_logic/bridging.c`](https://github.com/OpenSIPS/opensips/issues/3418) · [segfault during startup](https://github.com/OpenSIPS/opensips/issues/3359) · [crash when an rtpengine is down at startup](https://github.com/OpenSIPS/opensips/issues/3335) · [crash on an invalid TCP request](https://github.com/OpenSIPS/opensips/issues/950) |
+| [HOMER](https://github.com/sipcapture/homer/issues?q=author%3ANormB+is%3Aissue) | 2 | PostgreSQL startup failures under docker-compose |
+| [rtpengine](https://github.com/sipwise/rtpengine/issues?q=author%3ANormB+is%3Aissue) | 1 | [no response to `delete` after `play media`](https://github.com/sipwise/rtpengine/issues/1883) |
+| [Asterisk](https://github.com/asterisk/asterisk/issues?q=author%3ANormB) | 1 | [MySQL 8.3 reserved word breaks the alembic table scripts](https://github.com/asterisk/asterisk/issues/651) |
 
 ### Currently
 
