@@ -163,7 +163,7 @@ and ClueCon.
 |---|---|---|
 | 2018 | Mid-registrar and registration redirection — [slides](https://opensips.org/events/Summit-2018Amsterdam/assets/presentations/OpenSIPS%20Summit%202018%20-%20Norman%20Brandinger%20-%20Using%20the%20mid_registrar%20module%20along%20with%20registration%20redirection.pdf) | OpenSIPS Summit, Amsterdam |
 | 2017 | [OpenSIPS & Vonage - a great call](https://www.opensips.org/events/Summit-2017Amsterdam.html) | OpenSIPS Summit, Amsterdam |
-| 2014 | Advanced SIP routing with FreeSWITCH modules | ClueCon |
+| 2014 | Advanced SIP routing with FreeSWITCH modules — [slides](talks/2014-cluecon/advanced-sip-routing-with-freeswitch-modules.pdf) · [notes](talks/2014-cluecon/) | ClueCon |
 | 2014 | Advanced SIP routing with OpenSIPS modules — [slides](https://opensips.org/pub/events/2014-08-04_OpenSIPS-Summit_Chicago/Norman_Brandinger-OpenSIPS_Summit_2014-Advanced_SIP_Routing_with_OpenSIPS_modules.pdf) | OpenSIPS Summit, Chicago |
 | 2013 | High availability with OpenSIPS — [slides](https://opensips.org/pub/events/2013-08-05_OpenSIPS-Summit_Chicago/Norman_Brandinger-HA_with_OpenSIPS.pdf) | OpenSIPS Summit, Chicago |
 | 2007 | OpenSER and GOES — BOF session — [slides](talks/2007-von/bof-nbrandinger-openser_and_goes.pdf) · [notes](talks/2007-von/) | VON, Boston |
