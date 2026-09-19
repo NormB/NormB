@@ -4,7 +4,7 @@
 
 **Telecom systems engineer**
 
-SIP proxies, media relays, and the C and Rust underneath
+SIP proxies, media relays, PBXs and the code that runs them. OpenSIPS, Kamailio, RTPEngine, Asterisk, FreeSWITCH, etc.
 
 <a href="https://github.com/OpenSIPS/opensips/pulls?q=is%3Apr+author%3ANormB+is%3Amerged"><img alt="OpenSIPS" src="https://img.shields.io/badge/OpenSIPS-1a5f7a?style=flat-square"></a>
 <a href="https://github.com/kamailio/kamailio/pulls?q=is%3Apr+author%3ANormB+is%3Amerged"><img alt="Kamailio" src="https://img.shields.io/badge/Kamailio-2b6cb0?style=flat-square"></a>
