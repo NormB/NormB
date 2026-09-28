@@ -25,9 +25,9 @@ in my own tools where nothing suitable existed.
 I also run this stack in production, which is where most of the bugs come from: nine years
 of Kamailio and OpenSIPS and eight of FreeSWITCH, carrying live traffic.
 
-**20 years contributing upstream** (since 2006) · **69 merged pull requests** across
+**20 years contributing upstream** (since 2006) · **70 merged pull requests** across
 9 upstream projects · **~20 upstream bug reports**, 4 of them crashes ·
-**48,000+ installs** of my two language servers · **12 conference talks**, 2007–2026
+**55,000+ installs** of my two language servers · **12 conference talks**, 2007–2026
 
 ---
 
@@ -67,7 +67,7 @@ Two decades of features and fixes that landed in other people's projects, oldest
 | 2024 | Reported **[asterisk/asterisk#651](https://github.com/asterisk/asterisk/issues/651)** — MySQL 8.3 turned `qualify` into a reserved word, breaking Asterisk's alembic table scripts; fixed upstream. |
 | 2024–2025 | **Networking enhancements across four OpenSIPS modules** — [dispatcher `ping_sock` partition parameter](https://github.com/OpenSIPS/opensips/pull/3527), [MySQL Unix-socket connections](https://github.com/OpenSIPS/opensips/pull/3565), [Redis MOVED redirection](https://github.com/OpenSIPS/opensips/pull/3639), and [per-socket rtpengine command routing](https://github.com/OpenSIPS/opensips/pull/3617). |
 | 2026 | **Kamailio fixes** — [tm transaction leak on drop](https://github.com/kamailio/kamailio/pull/4644), [dialog race in `link_dlg_profile`](https://github.com/kamailio/kamailio/pull/4591), [swapped comparison in core atomics](https://github.com/kamailio/kamailio/pull/4638), and a [NULL deref in rtpengine DTMF handling](https://github.com/kamailio/kamailio/pull/4637). |
-| 2026 | **[Five fixes to tfps](https://github.com/sippulse/tfps/pulls?q=is%3Apr+author%3ANormB+is%3Amerged)**, SipPulse's VoIP fraud prevention system, in Rust — [observe-only mode silently dropped its own verdicts](https://github.com/sippulse/tfps/pull/1), [a schema upgrade deleted the `block_log` audit table](https://github.com/sippulse/tfps/pull/2), [the APIBAN feed counted addresses the kernel never blocked](https://github.com/sippulse/tfps/pull/3), [store writes discarded their own failures](https://github.com/sippulse/tfps/pull/4), and [`tfps_ctl ban` could block the host it defends](https://github.com/sippulse/tfps/pull/5). A sixth — [`tfps_ctl --json` on every subcommand](https://github.com/sippulse/tfps/pull/6), a machine-readable contract beside the human columns so tools consume it without screen-scraping — is proposed upstream to [sippulse/tfps](https://github.com/sippulse/tfps). |
+| 2026 | **[Six merged into tfps](https://github.com/sippulse/tfps/pulls?q=is%3Apr+author%3ANormB+is%3Amerged)**, SipPulse's VoIP fraud prevention system, in Rust — five fixes: [observe-only mode silently dropped its own verdicts](https://github.com/sippulse/tfps/pull/1), [a schema upgrade deleted the `block_log` audit table](https://github.com/sippulse/tfps/pull/2), [the APIBAN feed counted addresses the kernel never blocked](https://github.com/sippulse/tfps/pull/3), [store writes discarded their own failures](https://github.com/sippulse/tfps/pull/4), and [`tfps_ctl ban` could block the host it defends](https://github.com/sippulse/tfps/pull/5); and [`tfps_ctl --json` on every subcommand](https://github.com/sippulse/tfps/pull/6), a machine-readable contract beside the human columns so tools consume it without screen-scraping. A seventh, [recording who placed a hand ban and why](https://github.com/sippulse/tfps/pull/7), is in draft. |
 | 2026 | **[Per-key TTL in the NATS C client](https://github.com/nats-io/nats.c/pull/1000)** — brought `nats.c` KV to parity with nats.go's per-key TTL and limit markers, plus a [follow-up](https://github.com/nats-io/nats.c/pull/1001) preserving the create-path error through the marker-aware retry. |
 
 <details>
@@ -77,7 +77,7 @@ Two decades of features and fixes that landed in other people's projects, oldest
 |---|---|
 | [OpenSIPS/opensips](https://github.com/OpenSIPS/opensips/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **45** |
 | [freeswitch/mod_mosquitto](https://github.com/freeswitch/mod_mosquitto/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **5** |
-| [sippulse/tfps](https://github.com/sippulse/tfps/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **5** |
+| [sippulse/tfps](https://github.com/sippulse/tfps/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **6** |
 | [kamailio/kamailio](https://github.com/kamailio/kamailio/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **4** |
 | [signalwire/freeswitch](https://github.com/signalwire/freeswitch/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **4** |
 | [nats-io/nats.c](https://github.com/nats-io/nats.c/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **2** |
@@ -95,7 +95,7 @@ is not a distinct upstream project:
 
 </details>
 
-By year: **9 merged in 2024 · 13 in 2025 · 31 in 2026** — the stretch covered by the
+By year: **9 merged in 2024 · 13 in 2025 · 32 in 2026** — the stretch covered by the
 2026 Summit talk on AI-assisted development. The method is not delegation: I hold the design
 and the judgment, and use AI for the heavy lifting — correlating days of logs across dozens of
 servers into diagnosable patterns, and building the analysis scripts that follow.
@@ -136,7 +136,9 @@ with reproductions. Four were crashes:
 
 ### Currently
 
-- **sipnab** — deepening protocol coverage (SIP, SDP, RTP/RTCP, STUN/TURN, TLS/DTLS) and the MCP server that exposes it to agents
+- **sipnab** — deepening protocol coverage (SIP, SDP, RTP/RTCP, STUN/TURN, TLS/DTLS) and the MCP server that exposes it to agents;
+  [step-by-step guides](https://sipnab.com) for running it beside OpenSIPS, Kamailio, rtpengine, Homer, Prometheus,
+  a vCon server and TFPS, every step run on Debian 13 and Ubuntu 24.04; and naming the calls behind media relayed by rtpproxy
 - **opensips-lsp / kamailio-lsp** — bringing real editor tooling to SIP routing scripts, which have never had any
 - **OpenSIPS upstream** — reproducing and fixing memory-safety and concurrency bugs
   (use-after-free, races, leaks) across the dialog, tm, Redis and media modules, and
