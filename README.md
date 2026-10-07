@@ -25,9 +25,9 @@ in my own tools where nothing suitable existed.
 I also run this stack in production, which is where most of the bugs come from: nine years
 of Kamailio and OpenSIPS and eight of FreeSWITCH, carrying live traffic.
 
-**20 years contributing upstream** (since 2006) · **70 merged pull requests** across
-9 upstream projects · **~20 upstream bug reports**, 4 of them crashes ·
-**55,000+ installs** of my two language servers · **12 conference talks**, 2007–2026
+**20 years contributing upstream** (since 2006) · **73 merged pull requests** across
+10 upstream projects · **~20 upstream bug reports**, 4 of them crashes ·
+**57,000+ installs** of my two language servers · **12 conference talks**, 2007–2026
 
 ---
 
@@ -49,7 +49,7 @@ of Kamailio and OpenSIPS and eight of FreeSWITCH, carrying live traffic.
 
 | Branch | What it adds |
 |---|---|
-| [`feature/nats`](https://github.com/NormB/opensips/tree/feature/nats) | NATS support for OpenSIPS — `event_nats`, `cachedb_nats`, `cachedb_nats_fts` and `nats_consumer`, over a shared `lib/nats`, with fault-model and TLS-backend docs. 618 commits. |
+| [`feature/nats`](https://github.com/NormB/opensips/tree/feature/nats) | NATS support for OpenSIPS — `event_nats`, `cachedb_nats`, `cachedb_nats_fts` and `nats_consumer`, over a shared `lib/nats`, with fault-model and TLS-backend docs. 624 commits. |
 | [`feature/rust`](https://github.com/NormB/opensips/tree/feature/rust) | A Rust module SDK for OpenSIPS 4.0 (`rust`) plus six modules written against it — ACL, concurrent-call limits, credit check, HTTP webhooks, REFER handling and session timers. 106 commits. |
 | [`feature/rtpengine-subscribe-publish`](https://github.com/NormB/opensips/tree/feature/rtpengine-subscribe-publish) | `rtpengine_subscribe_request()`, `rtpengine_subscribe_answer()`, `rtpengine_publish()` and unsubscribe script functions, with docs covering the `all` flag, L16 transcoding and multi-section SDP. +497 lines. |
 
@@ -67,23 +67,25 @@ Two decades of features and fixes that landed in other people's projects, oldest
 | 2024 | Reported **[asterisk/asterisk#651](https://github.com/asterisk/asterisk/issues/651)** — MySQL 8.3 turned `qualify` into a reserved word, breaking Asterisk's alembic table scripts; fixed upstream. |
 | 2024–2025 | **Networking enhancements across four OpenSIPS modules** — [dispatcher `ping_sock` partition parameter](https://github.com/OpenSIPS/opensips/pull/3527), [MySQL Unix-socket connections](https://github.com/OpenSIPS/opensips/pull/3565), [Redis MOVED redirection](https://github.com/OpenSIPS/opensips/pull/3639), and [per-socket rtpengine command routing](https://github.com/OpenSIPS/opensips/pull/3617). |
 | 2026 | **Kamailio fixes** — [tm transaction leak on drop](https://github.com/kamailio/kamailio/pull/4644), [dialog race in `link_dlg_profile`](https://github.com/kamailio/kamailio/pull/4591), [swapped comparison in core atomics](https://github.com/kamailio/kamailio/pull/4638), and a [NULL deref in rtpengine DTMF handling](https://github.com/kamailio/kamailio/pull/4637). |
-| 2026 | **[Six merged into tfps](https://github.com/sippulse/tfps/pulls?q=is%3Apr+author%3ANormB+is%3Amerged)**, SipPulse's VoIP fraud prevention system, in Rust — five fixes: [observe-only mode silently dropped its own verdicts](https://github.com/sippulse/tfps/pull/1), [a schema upgrade deleted the `block_log` audit table](https://github.com/sippulse/tfps/pull/2), [the APIBAN feed counted addresses the kernel never blocked](https://github.com/sippulse/tfps/pull/3), [store writes discarded their own failures](https://github.com/sippulse/tfps/pull/4), and [`tfps_ctl ban` could block the host it defends](https://github.com/sippulse/tfps/pull/5); and [`tfps_ctl --json` on every subcommand](https://github.com/sippulse/tfps/pull/6), a machine-readable contract beside the human columns so tools consume it without screen-scraping. A seventh, [recording who placed a hand ban and why](https://github.com/sippulse/tfps/pull/7), is in draft. |
-| 2026 | **[Per-key TTL in the NATS C client](https://github.com/nats-io/nats.c/pull/1000)** — brought `nats.c` KV to parity with nats.go's per-key TTL and limit markers, plus a [follow-up](https://github.com/nats-io/nats.c/pull/1001) preserving the create-path error through the marker-aware retry. |
+| 2026 | **[Seven merged into tfps](https://github.com/sippulse/tfps/pulls?q=is%3Apr+author%3ANormB+is%3Amerged)**, SipPulse's VoIP fraud prevention system, in Rust — five fixes: [observe-only mode silently dropped its own verdicts](https://github.com/sippulse/tfps/pull/1), [a schema upgrade deleted the `block_log` audit table](https://github.com/sippulse/tfps/pull/2), [the APIBAN feed counted addresses the kernel never blocked](https://github.com/sippulse/tfps/pull/3), [store writes discarded their own failures](https://github.com/sippulse/tfps/pull/4), and [`tfps_ctl ban` could block the host it defends](https://github.com/sippulse/tfps/pull/5); [`tfps_ctl --json` on every subcommand](https://github.com/sippulse/tfps/pull/6), a machine-readable contract beside the human columns so tools consume it without screen-scraping; and [a record of who placed each manual ban and why, and of every manual unban](https://github.com/sippulse/tfps/pull/8). |
+| 2026 | **[Per-key TTL in the NATS C client](https://github.com/nats-io/nats.c/pull/1000)** — brought `nats.c` KV to parity with nats.go's per-key TTL and limit markers, plus a [follow-up](https://github.com/nats-io/nats.c/pull/1001) preserving the create-path error through the marker-aware retry. Both shipped in [nats.c v3.14.0](https://github.com/nats-io/nats.c/releases/tag/v3.14.0). |
+| 2026 | **[A reusable rtpengine task for SIPssert](https://github.com/OpenSIPS/SIPssert/pull/56)**, OpenSIPS' SIP testing framework — scenarios start an rtpengine media proxy as a first-class task, healthy once its ng control socket is bound, instead of an inline shell block. |
 
 <details>
 <summary><b>Merged pull request counts by project</b> — every number links to the search that produces it</summary>
 
 | Project | Merged |
 |---|---|
-| [OpenSIPS/opensips](https://github.com/OpenSIPS/opensips/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **45** |
+| [OpenSIPS/opensips](https://github.com/OpenSIPS/opensips/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **46** |
+| [sippulse/tfps](https://github.com/sippulse/tfps/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **7** |
 | [freeswitch/mod_mosquitto](https://github.com/freeswitch/mod_mosquitto/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **5** |
-| [sippulse/tfps](https://github.com/sippulse/tfps/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **6** |
 | [kamailio/kamailio](https://github.com/kamailio/kamailio/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **4** |
 | [signalwire/freeswitch](https://github.com/signalwire/freeswitch/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **4** |
 | [nats-io/nats.c](https://github.com/nats-io/nats.c/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **2** |
 | [valkey-io/valkey-admin](https://github.com/valkey-io/valkey-admin/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **1** |
 | [signalwire/SignaLWire-ML-examples](https://github.com/signalwire/SignaLWire-ML-examples/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **2** |
 | [OpenSIPS/sipssert-opensips-tests](https://github.com/OpenSIPS/sipssert-opensips-tests/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **1** |
+| [OpenSIPS/SIPssert](https://github.com/OpenSIPS/SIPssert/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **1** |
 
 **Plus 6 merged into employer forks** of projects listed above, kept separate because a fork
 is not a distinct upstream project:
@@ -95,7 +97,7 @@ is not a distinct upstream project:
 
 </details>
 
-By year: **9 merged in 2024 · 13 in 2025 · 32 in 2026** — the stretch covered by the
+By year: **9 merged in 2024 · 13 in 2025 · 35 in 2026** — the stretch covered by the
 2026 Summit talk on AI-assisted development. The method is not delegation: I hold the design
 and the judgment, and use AI for the heavy lifting — correlating days of logs across dozens of
 servers into diagnosable patterns, and building the analysis scripts that follow.
@@ -137,12 +139,13 @@ with reproductions. Four were crashes:
 ### Currently
 
 - **sipnab** — deepening protocol coverage (SIP, SDP, RTP/RTCP, STUN/TURN, TLS/DTLS) and the MCP server that exposes it to agents;
-  [step-by-step guides](https://sipnab.com) for running it beside OpenSIPS, Kamailio, rtpengine, Homer, Prometheus,
-  a vCon server and TFPS, every step run on Debian 13 and Ubuntu 24.04; and naming the calls behind media relayed by rtpproxy
+  [step-by-step guides](https://sipnab.com) for running it beside OpenSIPS, Kamailio, rtpengine, rtpproxy, Homer, Prometheus,
+  fail2ban, a vCon server and TFPS, every step run on Debian 13 and Ubuntu 24.04; and a code-quality program that removes
+  every lint suppression by redesigning the code it hid, and converts the tests to return their errors rather than panic
 - **opensips-lsp / kamailio-lsp** — bringing real editor tooling to SIP routing scripts, which have never had any
 - **OpenSIPS upstream** — reproducing and fixing memory-safety and concurrency bugs
   (use-after-free, races, leaks) across the dialog, tm, Redis and media modules, and
-  writing regression tests so they stay fixed
+  writing regression tests so they stay fixed — including in OpenSIPS' own SIPssert test framework
 - **devstack-core** — making a full VoIP stack reproducible on an ARM laptop
 
 ### Talks
