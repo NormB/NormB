@@ -22,8 +22,8 @@ since 2006. Most of my work is on **OpenSIPS**,
 **Kamailio**, **rtpengine**, **FreeSWITCH** and **Asterisk** — upstream where it belongs, and
 in my own tools where nothing suitable existed.
 
-I also run this stack in production, which is where most of the bugs come from: nine years
-of Kamailio and OpenSIPS and eight of FreeSWITCH, carrying live traffic.
+I also run this stack in production, which is where most of the bugs come from: OpenSER
+since 2006, then OpenSIPS and Kamailio, and FreeSWITCH since 2008.
 
 **20 years contributing upstream** (since 2006) · **73 merged pull requests** across
 10 upstream projects · **~20 upstream bug reports**, 4 of them crashes ·
@@ -61,6 +61,7 @@ Two decades of features and fixes that landed in other people's projects, oldest
 | When | What |
 |---|---|
 | 2006 | **[The OpenSIPS PostgreSQL driver](https://github.com/OpenSIPS/opensips/commit/2d80fcf1cfed82680a016fe723da03a303f73aff)** — rewrote `db_postgres` in the OpenSER days, adding connection pooling and fetch support. Third-ranked contributor to the module in OpenSIPS' own documentation — DevScore 58, 1,501 lines added, active Aug 2006 – Oct 2021 ([module docs](https://docs.opensips.org/manual/3-6/modules/db_postgres/)). |
+| 2008 | **[Keep-alive NOTIFY handling in FreeSWITCH](https://github.com/signalwire/freeswitch/commit/979e12246ee4905742fa90171f12283531deda40)** — `mod_sofia` now answers keep-alive NOTIFY requests with `200 OK`. Committed by Michael Jerris as SVN r7482 ("Thanks Norm"). |
 | 2008–2009 | **[FreeRADIUS patches for CDRTool](https://github.com/AGProjects/cdrtool/tree/master/contrib/freeradius-brandinger)** — FreeRADIUS could not account for failed SIP sessions. Five patches adding acct type Failed (15) and MySQL stored-procedure support, carried in AG Projects' CDRTool as `contrib/freeradius-brandinger/` and referenced from its install guide. |
 | 2020 | **[mod_mosquitto](https://github.com/freeswitch/mod_mosquitto)** — FreeSWITCH event handler bridging FreeSWITCH events to an MQTT broker. Written from scratch; now maintained upstream under the FreeSWITCH org. |
 | 2021 | **[TLS for PostgreSQL in OpenSIPS](https://github.com/OpenSIPS/opensips/pull/2644)** — `db_postgres` `use_tls`, letting any OpenSIPS module reach Postgres over TLS via a `tls_mgm` client domain. |
@@ -178,6 +179,8 @@ and ClueCon.
 </details>
 
 Technical reviewer for **FreeSWITCH 1.2** (Packt Publishing, second edition, May 2013, ISBN 978-1-78216-100-4).
+
+Member of the **OpenSIPS Foundation**, listed on its [member page](https://www.opensips.org/Community/Foundation-Members) (last updated December 2014).
 
 ### Tech & focus
 
