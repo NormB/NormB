@@ -146,7 +146,8 @@ with reproductions. Four were crashes:
   fail2ban, a vCon server and TFPS, every step run on Debian 13 and Ubuntu 24.04; and a code-quality program that removes
   every lint suppression by redesigning the code it hid, and converts the tests to return their errors rather than panic
 - **opensips-lsp / kamailio-lsp** — bringing real editor tooling to SIP routing scripts, which have never had any; the
-  latest releases (0.25.0 / 0.20.0) make scanning linear in document size, and opensips-lsp now answers requests while a config check runs
+  latest releases (0.26.0 / 0.21.0) make scanning linear in document size, keep answering requests while a config check runs, and
+  add outline, folding and selection by structure; kamailio-lsp resolves includes in the order Kamailio opens them
 - **vCon** — testing sipnab's vCon schema validator against the public vcon-dev datasets, and correcting those datasets to core-04
   ([vcon-datasets-core04](https://github.com/NormB/vcon-datasets-core04)), with the corrections offered back upstream
 - **OpenSIPS upstream** — reproducing and fixing memory-safety and concurrency bugs
