@@ -27,7 +27,7 @@ since 2006, then OpenSIPS and Kamailio, and FreeSWITCH since 2008.
 
 **20 years contributing upstream** (since 2006) · **73 merged pull requests** across
 10 upstream projects · **~20 upstream bug reports**, 4 of them crashes ·
-**60,000+ installs** of my two language servers · **12 conference talks**, 2007–2026
+**68,000+ installs** of my two language servers · **12 conference talks**, 2007–2026
 
 ---
 
@@ -36,8 +36,9 @@ since 2006, then OpenSIPS and Kamailio, and FreeSWITCH since 2008.
 | Project | What it is | |
 |---|---|---|
 | **[sipnab](https://github.com/NormB/sipnab)** · [sipnab.com](https://sipnab.com) | SIP & RTP capture, analysis and security. One binary, one dependency (libpcap). | [![stars](https://img.shields.io/github/stars/NormB/sipnab?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/NormB/sipnab) [![release](https://img.shields.io/github/v/release/NormB/sipnab?style=flat-square&labelColor=1c1917&color=555)](https://github.com/NormB/sipnab/releases) |
-| **[opensips-lsp](https://github.com/NormB/opensips-lsp)** · [Open VSX](https://open-vsx.org/extension/NormB/opensips-lsp) | Language server for OpenSIPS routing scripts — completion, diagnostics, go-to-definition, rename across every use, outline and folding. Its tree-sitter grammar parses every config that `opensips -C` 4.0.1 accepts. | [![installs](https://img.shields.io/open-vsx/dt/NormB/opensips-lsp?style=flat-square&label=installs&labelColor=1c1917&color=0b7285)](https://open-vsx.org/extension/NormB/opensips-lsp) |
-| **[kamailio-lsp](https://github.com/NormB/kamailio-lsp)** · [Open VSX](https://open-vsx.org/extension/NormB/kamailio-lsp) | The same, for Kamailio configuration files. Follows the `#!ifdef` preprocessor as Kamailio does; its grammar parses every shipped Kamailio 6.1.4 config that `kamailio -c` accepts. | [![installs](https://img.shields.io/open-vsx/dt/NormB/kamailio-lsp?style=flat-square&label=installs&labelColor=1c1917&color=0b7285)](https://open-vsx.org/extension/NormB/kamailio-lsp) |
+| **[vcon-server](https://github.com/NormB/vcon-server)** · [vcon-server.com](https://vcon-server.com) | Stores IETF vCons encrypted at rest — AES-256-GCM, a key per version wrapped by tenant and master keys — with tenants, retention, legal holds and append-only audit logs. In development, not yet for production. | [![stars](https://img.shields.io/github/stars/NormB/vcon-server?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/NormB/vcon-server) |
+| **[opensips-lsp](https://github.com/NormB/opensips-lsp)** · [Open VSX](https://open-vsx.org/extension/NormB/opensips-lsp) | Language server for OpenSIPS routing scripts — completion, diagnostics, go-to-definition, rename across every use, outline and folding. Its tree-sitter grammar parses every config that `opensips -C` 4.0.2 accepts. | [![installs](https://img.shields.io/open-vsx/dt/NormB/opensips-lsp?style=flat-square&label=installs&labelColor=1c1917&color=0b7285)](https://open-vsx.org/extension/NormB/opensips-lsp) |
+| **[kamailio-lsp](https://github.com/NormB/kamailio-lsp)** · [Open VSX](https://open-vsx.org/extension/NormB/kamailio-lsp) | The same, for Kamailio configuration files. Follows the `#!ifdef` preprocessor as Kamailio does; its grammar parses every shipped Kamailio 6.1.5 config that `kamailio -c` accepts. | [![installs](https://img.shields.io/open-vsx/dt/NormB/kamailio-lsp?style=flat-square&label=installs&labelColor=1c1917&color=0b7285)](https://open-vsx.org/extension/NormB/kamailio-lsp) |
 | **[vcon-datasets-core04](https://github.com/NormB/vcon-datasets-core04)** | Three public vcon-dev vCon datasets (16,799 containers) corrected to draft-ietf-vcon-vcon-core-04 by additive, rule-checked edits, reproducibly, with the open items listed. Before: 0 passed the core-04 schema; after: all 8,503 Supreme Court and 4,527 of 8,181 IETF containers. Fixes offered upstream as three open pull requests ([Supreme Court](https://github.com/vcon-dev/vcon-supreme-court-arguments/pull/2) · [IETF](https://github.com/vcon-dev/ietf-meeting-vcons/pull/17) · [Newport](https://github.com/vcon-dev/vcon-dataset-city-of-newport-ri/pull/2)). | |
 | **[devstack-core](https://github.com/NormB/devstack-core)** | Local VoIP development infrastructure — Docker, Postgres, MongoDB, RabbitMQ, Prometheus, Grafana. | [![stars](https://img.shields.io/github/stars/NormB/devstack-core?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/NormB/devstack-core) |
 | **[voip-stack](https://github.com/NormB/voip-stack)** | Production-shaped OpenSIPS + Asterisk + rtpengine deployment. | [![stars](https://img.shields.io/github/stars/NormB/voip-stack?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/NormB/voip-stack) |
@@ -45,14 +46,13 @@ since 2006, then OpenSIPS and Kamailio, and FreeSWITCH since 2008.
 | **[homebrew-tap](https://github.com/NormB/homebrew-tap)** | `brew install NormB/tap/sipnab` | |
 | **[mod_mosquitto](https://github.com/freeswitch/mod_mosquitto)** | FreeSWITCH ↔ MQTT event handler. Lives upstream under the FreeSWITCH org. | [![stars](https://img.shields.io/github/stars/freeswitch/mod_mosquitto?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/freeswitch/mod_mosquitto) |
 
-**Not yet upstream.** Three branches live in my
+**Not yet upstream.** Two branches live in my
 [OpenSIPS fork](https://github.com/NormB/opensips) while they mature:
 
 | Branch | What it adds |
 |---|---|
-| [`feature/nats`](https://github.com/NormB/opensips/tree/feature/nats) | NATS support for OpenSIPS — `event_nats`, `cachedb_nats`, `cachedb_nats_fts` and `nats_consumer`, over a shared `lib/nats`, with fault-model and TLS-backend docs. 624 commits. |
+| [`feature/nats`](https://github.com/NormB/opensips/tree/feature/nats) | NATS support for OpenSIPS — `event_nats`, `cachedb_nats`, `cachedb_nats_fts` and `nats_consumer`, over a shared `lib/nats`, with fault-model and TLS-backend docs. 655 commits. |
 | [`feature/rust`](https://github.com/NormB/opensips/tree/feature/rust) | A Rust module SDK for OpenSIPS 4.0 (`rust`) plus six modules written against it — ACL, concurrent-call limits, credit check, HTTP webhooks, REFER handling and session timers. 106 commits. |
-| [`feature/rtpengine-subscribe-publish`](https://github.com/NormB/opensips/tree/feature/rtpengine-subscribe-publish) | `rtpengine_subscribe_request()`, `rtpengine_subscribe_answer()`, `rtpengine_publish()` and unsubscribe script functions, with docs covering the `all` flag, L16 transcoding and multi-section SDP. +497 lines. |
 
 
 ### Upstream
@@ -142,14 +142,19 @@ with reproductions. Four were crashes:
 
 - **sipnab** — deepening protocol coverage (SIP, SDP, RTP/RTCP, STUN/TURN, TLS/DTLS) and the MCP server that exposes it to agents,
   now also served over HTTP beside the TUI; vCon output to draft-ietf-vcon-vcon-core-04, with `--vcon-fetch` to read stored vCons back;
-  [step-by-step guides](https://sipnab.com) for running it beside OpenSIPS, Kamailio, rtpengine, rtpproxy, Homer, Prometheus,
-  fail2ban, a vCon server and TFPS, every step run on Debian 13 and Ubuntu 24.04; and a code-quality program that removes
+  [step-by-step guides](https://sipnab.com) for running it beside OpenSIPS, Kamailio, Asterisk, FreeSWITCH, rtpengine, rtpproxy,
+  Homer, Prometheus, fail2ban, a vCon server and TFPS, every step run on Debian 13 and Ubuntu 24.04; and a code-quality program that removes
   every lint suppression by redesigning the code it hid, and converts the tests to return their errors rather than panic
+- **vcon-server** — the store, the HTTP API, tenants and their keys, retention and the purge sweep, legal holds, the audit
+  logs, the command line, key rotation and `check` are built and tested; the last start-up checks and the release work are next
 - **opensips-lsp / kamailio-lsp** — bringing real editor tooling to SIP routing scripts, which have never had any; the
-  latest releases (0.26.0 / 0.21.0) make scanning linear in document size, keep answering requests while a config check runs, and
-  add outline, folding and selection by structure; kamailio-lsp resolves includes in the order Kamailio opens them
+  October releases (now 0.26.3 / 0.21.4) make scanning linear in document size, keep answering requests while a config check
+  runs, add outline, folding and selection by structure, and read `$(...)` variables the way the real parsers do, proven against
+  OpenSIPS 4.0.2 and Kamailio 6.1.5; kamailio-lsp resolves includes in the order Kamailio opens them
 - **vCon** — testing sipnab's vCon schema validator against the public vcon-dev datasets, and correcting those datasets to core-04
-  ([vcon-datasets-core04](https://github.com/NormB/vcon-datasets-core04)), with the corrections offered back upstream
+  ([vcon-datasets-core04](https://github.com/NormB/vcon-datasets-core04)), with the corrections offered back upstream, fake-vcons
+  included ([#3](https://github.com/vcon-dev/fake-vcons/pull/3)); and [an open issue](https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-core/issues/40)
+  on the core draft, where `content_hash` cannot be computed for a recording referenced by a streaming-service page
 - **OpenSIPS upstream** — reproducing and fixing memory-safety and concurrency bugs
   (use-after-free, races, leaks) across the dialog, tm, Redis and media modules, and
   writing regression tests so they stay fixed — including in OpenSIPS' own SIPssert test framework
@@ -178,8 +183,8 @@ and ClueCon.
 | 2018 | Mid-registrar and registration redirection — [slides](https://opensips.org/events/Summit-2018Amsterdam/assets/presentations/OpenSIPS%20Summit%202018%20-%20Norman%20Brandinger%20-%20Using%20the%20mid_registrar%20module%20along%20with%20registration%20redirection.pdf) | OpenSIPS Summit, Amsterdam |
 | 2017 | [OpenSIPS & Vonage - a great call](https://www.opensips.org/events/Summit-2017Amsterdam.html) | OpenSIPS Summit, Amsterdam |
 | 2014 | Advanced SIP routing with FreeSWITCH modules — [slides](talks/2014-cluecon/advanced-sip-routing-with-freeswitch-modules.pdf) · [notes](talks/2014-cluecon/) | ClueCon |
-| 2014 | Advanced SIP routing with OpenSIPS modules — [slides](https://opensips.org/pub/events/2014-08-04_OpenSIPS-Summit_Chicago/Norman_Brandinger-OpenSIPS_Summit_2014-Advanced_SIP_Routing_with_OpenSIPS_modules.pdf) | OpenSIPS Summit, Chicago |
-| 2013 | High availability with OpenSIPS — [slides](https://opensips.org/pub/events/2013-08-05_OpenSIPS-Summit_Chicago/Norman_Brandinger-HA_with_OpenSIPS.pdf) | OpenSIPS Summit, Chicago |
+| 2014 | Advanced SIP routing with OpenSIPS modules — [slides (archived)](https://web.archive.org/web/20220625223436/https://opensips.org/pub/events/2014-08-04_OpenSIPS-Summit_Chicago/Norman_Brandinger-OpenSIPS_Summit_2014-Advanced_SIP_Routing_with_OpenSIPS_modules.pdf) | OpenSIPS Summit, Chicago |
+| 2013 | High availability with OpenSIPS — [slides (archived)](https://web.archive.org/web/20240706010824/https://opensips.org/pub/events/2013-08-05_OpenSIPS-Summit_Chicago/Norman_Brandinger-HA_with_OpenSIPS.pdf) | OpenSIPS Summit, Chicago |
 | 2007 | OpenSER and GOES — BOF session — [slides](talks/2007-von/bof-nbrandinger-openser_and_goes.pdf) · [notes](talks/2007-von/) | VON, Boston |
 
 </details>
