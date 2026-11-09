@@ -25,9 +25,9 @@ in my own tools where nothing suitable existed.
 I also run this stack in production, which is where most of the bugs come from: OpenSER
 since 2006, then OpenSIPS and Kamailio, and FreeSWITCH since 2008.
 
-**20 years contributing upstream** (since 2006) · **73 merged pull requests** across
+**20 years contributing upstream** (since 2006) · **75 merged pull requests** across
 10 upstream projects · **~20 upstream bug reports**, 4 of them crashes ·
-**68,000+ installs** of my two language servers · **12 conference talks**, 2007–2026
+**75,000+ installs** of my two language servers · **12 conference talks**, 2007–2026
 
 ---
 
@@ -36,7 +36,7 @@ since 2006, then OpenSIPS and Kamailio, and FreeSWITCH since 2008.
 | Project | What it is | |
 |---|---|---|
 | **[sipnab](https://github.com/NormB/sipnab)** · [sipnab.com](https://sipnab.com) | SIP & RTP capture, analysis and security. One binary, one dependency (libpcap). | [![stars](https://img.shields.io/github/stars/NormB/sipnab?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/NormB/sipnab) [![release](https://img.shields.io/github/v/release/NormB/sipnab?style=flat-square&labelColor=1c1917&color=555)](https://github.com/NormB/sipnab/releases) |
-| **[vcon-server](https://github.com/NormB/vcon-server)** · [vcon-server.com](https://vcon-server.com) | Stores IETF vCons encrypted at rest — AES-256-GCM, a key per version wrapped by tenant and master keys — with tenants, retention, legal holds and append-only audit logs. In development, not yet for production. | [![stars](https://img.shields.io/github/stars/NormB/vcon-server?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/NormB/vcon-server) |
+| **[vcon-server](https://github.com/NormB/vcon-server)** · [vcon-server.com](https://vcon-server.com) | Stores IETF vCons encrypted at rest — AES-256-GCM, a key per version wrapped by tenant and master keys — with tenants, retention, legal holds and append-only audit logs. 0.4.1 released, not yet for production. | [![stars](https://img.shields.io/github/stars/NormB/vcon-server?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/NormB/vcon-server) |
 | **[opensips-lsp](https://github.com/NormB/opensips-lsp)** · [Open VSX](https://open-vsx.org/extension/NormB/opensips-lsp) | Language server for OpenSIPS routing scripts — completion, diagnostics, go-to-definition, rename across every use, outline and folding. Its tree-sitter grammar parses every config that `opensips -C` 4.0.2 accepts. | [![installs](https://img.shields.io/open-vsx/dt/NormB/opensips-lsp?style=flat-square&label=installs&labelColor=1c1917&color=0b7285)](https://open-vsx.org/extension/NormB/opensips-lsp) |
 | **[kamailio-lsp](https://github.com/NormB/kamailio-lsp)** · [Open VSX](https://open-vsx.org/extension/NormB/kamailio-lsp) | The same, for Kamailio configuration files. Follows the `#!ifdef` preprocessor as Kamailio does; its grammar parses every shipped Kamailio 6.1.5 config that `kamailio -c` accepts. | [![installs](https://img.shields.io/open-vsx/dt/NormB/kamailio-lsp?style=flat-square&label=installs&labelColor=1c1917&color=0b7285)](https://open-vsx.org/extension/NormB/kamailio-lsp) |
 | **[vcon-datasets-core04](https://github.com/NormB/vcon-datasets-core04)** | Three public vcon-dev vCon datasets (16,799 containers) corrected to draft-ietf-vcon-vcon-core-04 by additive, rule-checked edits, reproducibly, with the open items listed. Before: 0 passed the core-04 schema; after: all 8,503 Supreme Court and 4,527 of 8,181 IETF containers. Fixes offered upstream as three open pull requests ([Supreme Court](https://github.com/vcon-dev/vcon-supreme-court-arguments/pull/2) · [IETF](https://github.com/vcon-dev/ietf-meeting-vcons/pull/17) · [Newport](https://github.com/vcon-dev/vcon-dataset-city-of-newport-ri/pull/2)). | |
@@ -46,12 +46,17 @@ since 2006, then OpenSIPS and Kamailio, and FreeSWITCH since 2008.
 | **[homebrew-tap](https://github.com/NormB/homebrew-tap)** | `brew install NormB/tap/sipnab` | |
 | **[mod_mosquitto](https://github.com/freeswitch/mod_mosquitto)** | FreeSWITCH ↔ MQTT event handler. Lives upstream under the FreeSWITCH org. | [![stars](https://img.shields.io/github/stars/freeswitch/mod_mosquitto?style=flat-square&label=%E2%98%85&labelColor=1c1917&color=0b7285)](https://github.com/freeswitch/mod_mosquitto) |
 
-**Not yet upstream.** Two branches live in my
-[OpenSIPS fork](https://github.com/NormB/opensips) while they mature:
+**Open upstream.** NATS support for OpenSIPS is an open pull request,
+[OpenSIPS/opensips#4442](https://github.com/OpenSIPS/opensips/pull/4442): five community-contributed
+modules under `modules-contrib/` — `nats`, `event_nats`, `cachedb_nats`, `cachedb_nats_fts` and
+`nats_consumer` — with development continuing on
+[`feature/nats`](https://github.com/NormB/opensips/tree/feature/nats) (672 commits ahead of upstream).
+
+**Not yet upstream.** One branch lives in my
+[OpenSIPS fork](https://github.com/NormB/opensips) while it matures:
 
 | Branch | What it adds |
 |---|---|
-| [`feature/nats`](https://github.com/NormB/opensips/tree/feature/nats) | NATS support for OpenSIPS — `event_nats`, `cachedb_nats`, `cachedb_nats_fts` and `nats_consumer`, over a shared `lib/nats`, with fault-model and TLS-backend docs. 655 commits. |
 | [`feature/rust`](https://github.com/NormB/opensips/tree/feature/rust) | A Rust module SDK for OpenSIPS 4.0 (`rust`) plus six modules written against it — ACL, concurrent-call limits, credit check, HTTP webhooks, REFER handling and session timers. 106 commits. |
 
 
@@ -78,7 +83,7 @@ Two decades of features and fixes that landed in other people's projects, oldest
 
 | Project | Merged |
 |---|---|
-| [OpenSIPS/opensips](https://github.com/OpenSIPS/opensips/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **46** |
+| [OpenSIPS/opensips](https://github.com/OpenSIPS/opensips/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **48** |
 | [sippulse/tfps](https://github.com/sippulse/tfps/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **7** |
 | [freeswitch/mod_mosquitto](https://github.com/freeswitch/mod_mosquitto/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **5** |
 | [kamailio/kamailio](https://github.com/kamailio/kamailio/pulls?q=is%3Apr+author%3ANormB+is%3Amerged) | **4** |
@@ -99,7 +104,7 @@ is not a distinct upstream project:
 
 </details>
 
-By year: **9 merged in 2024 · 13 in 2025 · 35 in 2026** — the stretch covered by the
+By year: **9 merged in 2024 · 13 in 2025 · 37 in 2026** — the stretch covered by the
 2026 Summit talk on AI-assisted development. The method is not delegation: I hold the design
 and the judgment, and use AI for the heavy lifting — correlating days of logs across dozens of
 servers into diagnosable patterns, and building the analysis scripts that follow.
@@ -146,15 +151,18 @@ with reproductions. Four were crashes:
   Homer, Prometheus, fail2ban, a vCon server and TFPS, every step run on Debian 13 and Ubuntu 24.04; and a code-quality program that removes
   every lint suppression by redesigning the code it hid, and converts the tests to return their errors rather than panic
 - **vcon-server** — the store, the HTTP API, tenants and their keys, retention and the purge sweep, legal holds, the audit
-  logs, the command line, key rotation and `check` are built and tested; the last start-up checks and the release work are next
+  logs, the command line, key rotation and `check` are built and tested, with S3 and Parquet storage; 0.4.1 is released, not yet
+  for production; an optional PostgreSQL catalog is in progress
 - **opensips-lsp / kamailio-lsp** — bringing real editor tooling to SIP routing scripts, which have never had any; the
-  October releases (now 0.26.3 / 0.21.4) make scanning linear in document size, keep answering requests while a config check
+  October and November releases (now 0.28.1 / 0.22.1) make scanning linear in document size, keep answering requests while a config check
   runs, add outline, folding and selection by structure, and read `$(...)` variables the way the real parsers do, proven against
   OpenSIPS 4.0.2 and Kamailio 6.1.5; kamailio-lsp resolves includes in the order Kamailio opens them
 - **vCon** — testing sipnab's vCon schema validator against the public vcon-dev datasets, and correcting those datasets to core-04
   ([vcon-datasets-core04](https://github.com/NormB/vcon-datasets-core04)), with the corrections offered back upstream, fake-vcons
   included ([#3](https://github.com/vcon-dev/fake-vcons/pull/3)); and [an open issue](https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-core/issues/40)
   on the core draft, where `content_hash` cannot be computed for a recording referenced by a streaming-service page
+- **OpenSIPS NATS modules** — five `modules-contrib` modules, open upstream as
+  [#4442](https://github.com/OpenSIPS/opensips/pull/4442)
 - **OpenSIPS upstream** — reproducing and fixing memory-safety and concurrency bugs
   (use-after-free, races, leaks) across the dialog, tm, Redis and media modules, and
   writing regression tests so they stay fixed — including in OpenSIPS' own SIPssert test framework
